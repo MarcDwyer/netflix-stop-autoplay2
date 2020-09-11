@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+
+  "name": "Netflix Stop Autoplay",
+  "description": "Stop netflix from autoplaying!",
+  "version": "2.7",
+
+  "browser_action": {
+    "default_icon": "icon_green.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["js/eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.netflix.com/",
+        "https://www.netflix.com/browse",
+        "https://www.netflix.com/browse/*",
+        "https://www.netflix.com/browse/*/**"
+      ],
+      "js": ["js/content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon_green.png",
+    "48": "icon_green.png",
+    "128": "icon_green.png"
+  },
+
+  "permissions": ["storage"]
+}
